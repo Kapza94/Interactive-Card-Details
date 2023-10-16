@@ -26,7 +26,7 @@
 <body>
   <div class="main-container">
     <div class="left-pane">
-
+      <img src="../images/bg-main-desktop.png" alt="">
     </div>
     <div class="card-wrapper">
       <div class="card-front">
@@ -48,20 +48,30 @@
     </div>
     <div class="right-pane">
       <div class="card-info-container">
-        Cardholder Name
-        e.g. Jane Appleseed
 
-        Card Number
-        e.g. 1234 5678 9123 0000
+        <form action="" class="form">
+          <label for="full-name">Cardholder Name</label>
+          <input type="text" class="input-field" name="full-name" placeholder="e.g. Jane Appleseed">
+          <label for="card-num">Card Number</label>
+          <input type="text" class="input-field" name="card-num" placeholder="e.g. 1234 5678 9123 0000">
 
-        Exp. Date (MM/YY)
-        MM
-        YY
+          <div class="expiry-cvv">
+            <div class="expiry">
+              <label for="expiry-date">Exp. Date (MM/YY)</label>
+              <div class="expiry-date-input">
+                <input type="text" class="input-field exp-mm" name="expiry-date" placeholder="MM">
+                <input type="text" class="input-field exp-yy" name="expiry-date" placeholder="YY">
+              </div>
+            </div>
+            <div class="cvv">
+              <label for="cvc">CVC</label>
+              <input type="text" class="input-field" name="cvc" placeholder="e.g. 123">
+            </div>
+          </div>
+          <button type="submit" id="confirm-button">Confirm</button>
 
-        CVC
-        e.g. 123
 
-        Confirm
+        </form>
       </div>
     </div>
 
