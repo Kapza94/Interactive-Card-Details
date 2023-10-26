@@ -136,6 +136,10 @@ label {
     margin-left: 10%
 }
 
+.card-expiry-container {
+    display: flex;
+}
+
 .cvv {
     display: flex;
     flex-direction: column;

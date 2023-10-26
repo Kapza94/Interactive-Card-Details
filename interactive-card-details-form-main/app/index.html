@@ -11,7 +11,7 @@
   <title>Frontend Mentor | Interactive card details form</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
+  <!-- <style>
     .attribution {
       font-size: 11px;
       text-align: center;
@@ -20,7 +20,7 @@
     .attribution a {
       color: hsl(228, 45%, 44%);
     }
-  </style>
+  </style> -->
 </head>
 
 <body>
@@ -34,10 +34,14 @@
         <div class="card-picture">
           <div class="card-type"></div>
         </div>
-        <p class="card-number">0000 0000 0000 0000</p>
+        <p class="card-number" id="card-number">0000 0000 0000 0000</p>
         <div class="card-name-expiry">
-          <p class="card-name">Jane Appleseed</p>
-          <p class="card-expiry">00/00</p>
+          <p class="card-name" id="card-name">Jane Appleseed</p>
+          <div class="card-expiry-container">
+            <p class="card-expiry" id="card-expiry-mm">00</p>
+            <p class="card-expiry" id="card-expiry-dash">/</p>
+            <p class="card-expiry" id="card-expiry-yy">00</p>
+          </div>
         </div>
 
       </div>
@@ -51,16 +55,17 @@
 
         <form action="" class="form">
           <label for="full-name">Cardholder Name</label>
-          <input type="text" class="input-field" name="full-name" placeholder="e.g. Jane Appleseed">
+          <input type="text" class="input-field" id="name-input" minlength="1" maxlength="25" name="full-name"
+            placeholder="e.g. Jane Appleseed">
           <label for="card-num">Card Number</label>
-          <input type="text" class="input-field" name="card-num" placeholder="e.g. 1234 5678 9123 0000">
-
+          <input type="text" class="input-field" id="card-number-input" minlength="1" maxlength="19" name="card-num"
+            placeholder="e.g. 1234 5678 9123 0000">
           <div class="expiry-cvv">
             <div class="expiry">
               <label for="expiry-date">Exp. Date (MM/YY)</label>
               <div class="expiry-date-input">
-                <input type="text" class="input-field exp-mm" name="expiry-date" placeholder="MM">
-                <input type="text" class="input-field exp-yy" name="expiry-date" placeholder="YY">
+                <input type="text" class="input-field exp-mm" id="exp-mm" name="expiry-date" placeholder="MM">
+                <input type="text" class="input-field exp-yy" id="exp-yy" name="expiry-date" placeholder="YY">
               </div>
             </div>
             <div class="cvv">
@@ -91,5 +96,7 @@
     Coded by <a href="#">Kapza94</a>.
   </div>
 </body>
+
+<script src="./app.js"></script>
 
 </html>
