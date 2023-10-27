@@ -21,7 +21,7 @@ nameInput.addEventListener('input', (event) => {
         cardholderName.innerHTML = 'Jane Applethesenuts'
     }
 })
-    (/[^0-9]/g, '')
+// (/[^0-9]/g, '')
 
 
 const expiryMM = document.getElementById('card-expiry-mm');
@@ -30,17 +30,32 @@ const cardExpiryMonth = document.getElementById('exp-mm')
 const cardExpiryYear = document.getElementById('exp-yy')
 
 cardExpiryMonth.addEventListener('input', (event) => {
-    expiryMM.innerHTML = event.target.value;
-    if (event.target.value === '') {
+    let inputValue = event.target.value;
+    event.target.value = inputValue.replace(/[^0-9]/g, '');
+    expiryMM.innerHTML = inputValue;
+    if (inputValue === '') {
         expiryMM.innerHTML = 'MM'
     }
 })
 
 cardExpiryYear.addEventListener('input', (event) => {
-    expiryYY.innerHTML = event.target.value;
-    if (event.target.value === '') {
+    let inputValue = event.target.value;
+    event.target.value = inputValue.replace(/[^0-9]/g, '');
+    expiryYY.innerHTML = inputValue;
+    if (inputValue === '') {
         expiryYY.innerHTML = 'yy'
     }
 })
-const cardCvv = document.getElementsByClassName('cvv-number')
 
+
+const cardCvv = document.getElementById('cvv-number')
+const cardCvvInput = document.getElementById('cvv-input');
+
+cardCvvInput.addEventListener('input', (event) => {
+    let inputValue = event.target.value;
+    event.target.value = inputValue.replace(/[^0-9]/g, '');
+    cardCvv.innerHTML = inputValue;
+    if (inputValue === '') {
+        expiryYY.innerHTML = 'yy'
+    }
+})
