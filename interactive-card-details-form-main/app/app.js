@@ -5,9 +5,15 @@ cardNumberInput.addEventListener('input', (event) => {
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^0-9\s]/g, '');
     cardNumber.innerHTML = inputValue;
-    if (event.target.value === '') {
-        cardNumber.innerHTML = '0000 0000 0000 0000'
-    }
+    // if (inputValue.length > 0) {
+    //     if (inputValue.length % 4 == 0) {
+    //         inputValue += '     ';
+    //     }
+    //     console.log(inputValue.length % 4 == 0)
+    // }
+    // if (event.target.value === '') {
+    //     cardNumber.innerHTML = '0000 0000 0000 0000'
+    // }
 })
 
 const cardholderName = document.getElementById('card-name')
@@ -59,3 +65,33 @@ cardCvvInput.addEventListener('input', (event) => {
         expiryYY.innerHTML = 'yy'
     }
 })
+
+
+
+const confirmBtn = document.getElementById('confirm-button')
+
+confirmBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    const errorMsg = document.getElementById('error-msg');
+    const para = document.createTextNode('Please make sure all the red highlighted fields are populated')
+    errorMsg.appendChild(para);
+    errorMsg.style.color = 'red';
+
+    if (cardCvvInput.value === '') {
+        cardCvvInput.style.border = '1px solid red'
+    }
+    if (cardExpiryYear.value === '') {
+        cardExpiryYear.style.border = '1px solid red'
+    }
+    if (cardExpiryMonth.value === '') {
+        cardExpiryMonth.style.border = '1px solid red'
+    }
+    if (nameInput.value === '') {
+        nameInput.style.border = '1px solid red'
+    }
+    if (cardNumberInput.value === '') {
+        cardNumberInput.style.border = '1px solid red';
+    }
+})
+
+
