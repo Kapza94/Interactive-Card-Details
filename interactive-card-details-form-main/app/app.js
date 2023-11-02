@@ -137,8 +137,17 @@ confirmBtn.addEventListener('click', (event) => {
     if (cardNumberInput.value === '') {
         cardNumberInput.style.border = '1px solid red';
         displayErrorMessage('card-num-err', 'Can\'t be blank');
+        //form display block
+        //confirm display none
+        //for all the above same thing. 
     }
 
+    if(cardCvvInput.value.length > 0 && cardExpiryYear.value.length > 0 && ){
+        console.log('Show confirmation block');
+    }
+
+    //Form display none if no err
+    //Confirmation display block 
 });
 
 
