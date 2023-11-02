@@ -10,17 +10,7 @@
 
   <title>Frontend Mentor | Interactive card details form</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <!-- <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
 
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style> -->
 </head>
 
 <body>
@@ -52,30 +42,38 @@
     </div>
     <div class="right-pane">
       <div class="card-info-container">
-
+        <!-- Card Name -->
         <form action="" class="form">
           <label for="full-name">Cardholder Name</label>
           <input type="text" class="input-field" id="name-input" maxlength="25" name="full-name"
             placeholder="e.g. Jane Appleseed">
+            <div id="name-err" class="err-msg"></div>
+          <!-- Card Number -->
           <label for="card-num">Card Number</label>
-          <input type="text" class="input-field" id="card-number-input" maxlength="19" name="card-num"
+          <input type="text" pattern="(.{1,4}g)" class="input-field" id="card-number-input" maxlength="19" name="card-num"
             placeholder="e.g. 1234 5678 9123 0000">
+            <div id="card-num-err" class="err-msg"></div>
+
           <div class="expiry-cvv">
+            <!-- Month and Year Expiry  -->
             <div class="expiry">
               <label for="expiry-date">Exp. Date (MM/YY)</label>
               <div class="expiry-date-input">
-                <input type="text" class="input-field exp-mm" id="exp-mm" name="expiry-date" maxlength='2'
+                <input type="text" pattern="(?:0[1-9]|1[0-2])" class="input-field exp-mm" id="exp-mm" name="expiry-date" maxlength="2"
                   placeholder="MM">
-                <input type="text" class="input-field exp-yy" id="exp-yy" name="expiry-date" maxlength='2'
+                  <div id="mm-err" class="err-msg"></div>
+                <input type="text" class="input-field exp-yy" id="exp-yy" name="expiry-date" maxlength="2"
                   placeholder="YY">
+                  <div id="yy-err" class="err-msg"></div>
               </div>
             </div>
+            <!-- CVV Number -->
             <div class="cvv">
               <label for="cvc">CVC</label>
-              <input type="text" class="input-field" id='cvv-input' name="cvc" maxlength="3" placeholder="e.g. 123">
+              <input type="text" class="input-field" id="cvv-input" name="cvc" maxlength="3" placeholder="e.g. 123">
+              <div id="cvv-err" class="err-msg"></div>
             </div>
           </div>
-          <div id="error-msg"></div>
           <button type="submit" id="confirm-button">Confirm</button>
 
 
