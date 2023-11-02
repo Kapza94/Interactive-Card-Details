@@ -1,34 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 
 body {
-    font-size: 18px;
-    font-family: 'Space Grotesk', sans-serif;
-    margin: 0 0;
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+  margin: 0 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-dir-col {
+  flex-direction: column;
+}
+
+.mb20px {
+  margin-bottom: 20px !important;
 }
 
 .main-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: 10% auto;
-    position: absolute;
-    left: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 10% auto;
+  position: absolute;
+  left: 10px;
 }
 
 .card-front {
-    margin-bottom: 2rem;
-    position: absolute;
-    left: 190px;
+  margin-bottom: 2rem;
+  position: absolute;
+  left: 190px;
 }
 
 .card-back {
-    position: absolute;
-    left: 300px;
-    top: 260px;
+  position: absolute;
+  left: 300px;
+  top: 260px;
 }
 
 /* .left-pane {
@@ -39,126 +51,129 @@ body {
 } */
 
 .card-type {
-    position: absolute;
-    top: 24px;
-    left: 35px;
-    height: 18%;
-    width: 10%;
-    border-radius: 100%;
-    background-color: whitesmoke;
-
+  position: absolute;
+  top: 24px;
+  left: 35px;
+  height: 18%;
+  width: 10%;
+  border-radius: 100%;
+  background-color: whitesmoke;
 }
 
 .card-type::after {
-    content: '';
-    position: absolute;
-    top: 13px;
-    left: 65px;
-    width: 50%;
-    height: 50%;
-    border-radius: 100%;
-    border: 1px solid whitesmoke;
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 65px;
+  width: 50%;
+  height: 50%;
+  border-radius: 100%;
+  border: 1px solid whitesmoke;
 }
 
 .card-number {
-    position: absolute;
-    top: 90px;
-    left: 35px;
-    font-size: 33px;
-    color: whitesmoke;
+  position: absolute;
+  top: 90px;
+  left: 35px;
+  font-size: 33px;
+  color: whitesmoke;
 }
 
 .card-name-expiry {
-    display: flex;
-    justify-content: space-between;
-    width: 82%;
-    padding: 0 35px;
-    position: absolute;
-    top: 175px;
+  display: flex;
+  justify-content: space-between;
+  width: 82%;
+  padding: 0 35px;
+  position: absolute;
+  top: 175px;
 }
 
 .card-name,
 .card-expiry {
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
 .cvv-number {
-    position: absolute;
-    left: 356px;
-    top: 91px;
-    color: whitesmoke;
+  position: absolute;
+  left: 356px;
+  top: 91px;
+  color: whitesmoke;
 }
 
 .right-pane {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .expiry-date-input {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .form {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 .expiry {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-field {
-    padding: 0.8em;
-    border-radius: 5px;
-    border: 1px solid hsl(270, 3%, 87%);
-    margin-top: 5px;
-    margin-bottom: 30px;
+  padding: 0.8em;
+  border-radius: 5px;
+  border: 1px solid hsl(270, 3%, 87%);
+  margin-top: 5px;
 }
 
 label {
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
 }
 
 .exp-mm,
 .exp-yy {
-    width: 50%;
+  width: 50%;
 }
 
 .exp-yy {
-    margin-left: 10%
+  margin-left: 10%;
 }
 
 .card-expiry-container {
-    display: flex;
+  display: flex;
 }
 
 .cvv {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
 }
 
 .expiry-cvv {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #confirm-button {
-    width: 100%;
-    background-color: hsl(278, 68%, 11%);
-    color: whitesmoke;
-    padding: 1rem 1rem;
-    font-size: 20px;
-    border-radius: 10px;
+  width: 100%;
+  background-color: hsl(278, 68%, 11%);
+  color: whitesmoke;
+  padding: 1rem 1rem;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
 .submission-pop-up {
-    display: none;
+  display: none;
+}
+
+.err-msg {
+  font-size: 10px;
+  color: lightcoral;
 }

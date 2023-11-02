@@ -1,25 +1,77 @@
+//Displaing errors
+
+function displayErrorMessage(elementId, message) {
+    const errElement = document.getElementById(elementId);
+    errElement.textContent = message;
+    errElement.style.color = 'red';
+}
+//Clearing errors
+
+function clearErrorMessages() {
+    const errIDs = [
+        'cvv-err',
+        'yy-err',
+        'mm-err',
+        'name-err',
+        'card-num-err'
+    ];
+
+    errIDs.forEach((id) => {
+        const errElement = document.getElementById(id);
+        errElement.textContent = '';
+    })
+
+    //Below is the different ways to write the above forEach loop.
+
+    // for(let i = 0;i < errIDs.length;i++){
+    //     console.log(errIDs[i]);
+    //     const errElement = document.getElementById(errIDs[i])
+    // }
+
+    // for(id of errIDs){
+    //     const errElement = document.getElementById(errIDs[i])
+    // }
+    
+    cardCvvInput.style.border = '';
+    cardExpiryYear.style.border = '';
+    cardExpiryMonth.style.border = '';
+    nameInput.style.border = '';
+    cardNumberInput.style.border = '';
+}
+ 
+ 
+ 
+ 
+ 
  const cardNumber = document.getElementById('card-number');
 const cardNumberInput = document.getElementById('card-number-input');
 
 cardNumberInput.addEventListener('input', (event) => {
+    const ccNumErr = document.getElementById('card-num-err');
+    ccNumErr.innerHTML = '';
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^0-9\s]/g, '',);
     cardNumber.innerHTML = inputValue;
     if (event.target.value === '') {
-        cardNumber.innerHTML = '0000 0000 0000 0000'
-    }
+        cardNumber.innerHTML = '0000 0000 0000 0000';
+        displayErrorMessage('card-num-err', 'Can\'t be blank')
+        }
 })
 
 const cardholderName = document.getElementById('card-name')
 const nameInput = document.getElementById('name-input');
 
 nameInput.addEventListener('input', (event) => {
+    const ccNameErr = document.getElementById('name-err');
+    ccNameErr.innerHTML = '';
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^a-zA-Z\s]/g, '');
     cardholderName.innerHTML = inputValue;
     if (inputValue === '') {
         cardholderName.innerHTML = 'Jane Applethesenuts'
+        displayErrorMessage('name-err', 'Can\'t be blank')
     }
+
 })
 
 const expiryMM = document.getElementById('card-expiry-mm');
@@ -59,7 +111,6 @@ cardCvvInput.addEventListener('input', (event) => {
 })
 
 
-
 const confirmBtn = document.getElementById('confirm-button');
 
 confirmBtn.addEventListener('click', (event) => {
@@ -88,33 +139,6 @@ confirmBtn.addEventListener('click', (event) => {
         displayErrorMessage('card-num-err', 'Can\'t be blank');
     }
 
-    function displayErrorMessage(elementId, message) {
-        const errElement = document.getElementById(elementId);
-        errElement.textContent = message;
-        message.style.fontSize = '10px'
-        errElement.style.color = 'red';
-    }
-
-    function clearErrorMessages() {
-        const errIDs = [
-            'cvv-err',
-            'yy-err',
-            'mm-err',
-            'name-err',
-            'card-num-err'
-        ];
-
-        errIDs.forEach((id) => {
-            const errElement = document.getElementById(id);
-            errElement.textContent = '';
-            
-        })
-        
-        cardCvvInput.style.border = '';
-        cardExpiryYear.style.border = '';
-        cardExpiryMonth.style.border = '';
-        nameInput.style.border = '';
-        cardNumberInput.style.border = '';
-}});
+});
 
 
