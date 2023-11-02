@@ -1,4 +1,4 @@
-const cardNumber = document.getElementById('card-number');
+ const cardNumber = document.getElementById('card-number');
 const cardNumberInput = document.getElementById('card-number-input');
 
 cardNumberInput.addEventListener('input', (event) => {
