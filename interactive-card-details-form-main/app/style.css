@@ -14,6 +14,11 @@ body {
   flex-direction: column;
 }
 
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
 .mb20px {
   margin-bottom: 20px !important;
 }
@@ -35,6 +40,7 @@ body {
   margin-bottom: 2rem;
   position: absolute;
   left: 190px;
+  top: -25px;
 }
 
 .card-back {
@@ -169,11 +175,48 @@ label {
   border-radius: 10px;
 }
 
-.submission-pop-up {
+#submission-pop-up {
   display: none;
 }
 
 .err-msg {
   font-size: 10px;
   color: lightcoral;
+}
+
+#submission-pop-up {
+  margin-right: 200px;
+  /* display: flex;
+  position: absolute;
+  top: 262px;
+  right: 95px; */
+}
+
+.text-style {
+  font-size: 25px;
+  letter-spacing: 5px;
+  color: hsl(278, 68%, 11%);
+  margin: 30px 0 10px 0;
+}
+
+.light-text {
+  font-size: 18px;
+  color: hsl(279, 6%, 55%);
+  margin: 0 0 40px 0;
+}
+
+.btn-style {
+  width: 150%;
+  background-color: hsl(278, 68%, 11%);
+  color: whitesmoke;
+  padding: 1rem 1rem;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.ab-pos {
+  display: flex;
+  position: absolute;
+  right: 101px;
+  top: 262px;
 }

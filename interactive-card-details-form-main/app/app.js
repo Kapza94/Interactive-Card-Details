@@ -121,33 +121,45 @@ confirmBtn.addEventListener('click', (event) => {
     if (cardCvvInput.value === '') {
         cardCvvInput.style.border = '1px solid red'
         displayErrorMessage('cvv-err', 'Can\'t be blank');
+        // submissionPopUp.style.display = 'none';
+        // cardInfoContainer.style.display = 'block';
     }
     if (cardExpiryYear.value === '') {
         cardExpiryYear.style.border = '1px solid red'
         displayErrorMessage('yy-err', 'Can\'t be blank');
+        // submissionPopUp.style.display = 'none';
+        // cardInfoContainer.style.display = 'block';
     }
     if (cardExpiryMonth.value === '') {
         cardExpiryMonth.style.border = '1px solid red'
         displayErrorMessage('mm-err', 'Can\'t be blank');
+        // submissionPopUp.style.display = 'none';
+        // cardInfoContainer.style.display = 'block';
     }
     if (nameInput.value === '') {
         nameInput.style.border = '1px solid red'
         displayErrorMessage('name-err', 'Can\'t be blank');
+        // submissionPopUp.style.display = 'none';
+        // cardInfoContainer.style.display = 'block';
     }
     if (cardNumberInput.value === '') {
         cardNumberInput.style.border = '1px solid red';
         displayErrorMessage('card-num-err', 'Can\'t be blank');
-        //form display block
-        //confirm display none
+        // submissionPopUp.style.display = 'none';
+        // cardInfoContainer.style.display = 'block';
         //for all the above same thing. 
     }
 
-    if(cardCvvInput.value.length > 0 && cardExpiryYear.value.length > 0 && ){
+    //Toggle blocks on submission of the 
+    const submissionPopUp = document.getElementById('submission-pop-up');
+    const form = document.getElementsByClassName('form')[0];
+    if(cardCvvInput.value.length > 0 && cardExpiryYear.value.length > 0 && cardExpiryMonth.value.length > 0 && nameInput.value.length > 0 && cardNumberInput.value.length > 0){
         console.log('Show confirmation block');
+        submissionPopUp.style.display = 'flex';
+        form.style.display = 'none';
     }
 
-    //Form display none if no err
-    //Confirmation display block 
+
 });
 
 
