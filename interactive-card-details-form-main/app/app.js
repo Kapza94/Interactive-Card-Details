@@ -42,8 +42,8 @@ function clearErrorMessages() {
  
  
  
- 
- const cardNumber = document.getElementById('card-number');
+ //CARD NUMBER INPUT//
+const cardNumber = document.getElementById('card-number');
 const cardNumberInput = document.getElementById('card-number-input');
 
 cardNumberInput.addEventListener('input', (event) => {
@@ -52,12 +52,13 @@ cardNumberInput.addEventListener('input', (event) => {
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^0-9\s]/g, '',);
     cardNumber.innerHTML = inputValue;
-    if (event.target.value === '') {
+    if (event.target.value === '' || event.target.value.length < 16) {
         cardNumber.innerHTML = '0000 0000 0000 0000';
-        displayErrorMessage('card-num-err', 'Can\'t be blank')
+        displayErrorMessage('card-num-err', 'Card number can not be less than 16 numbers')
         }
 })
 
+ //CARD NAME INPUT//
 const cardholderName = document.getElementById('card-name')
 const nameInput = document.getElementById('name-input');
 
@@ -67,88 +68,108 @@ nameInput.addEventListener('input', (event) => {
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^a-zA-Z\s]/g, '');
     cardholderName.innerHTML = inputValue;
-    if (inputValue === '') {
-        cardholderName.innerHTML = 'Jane Applethesenuts'
-        displayErrorMessage('name-err', 'Can\'t be blank')
+    if (inputValue === '' || inputValue.length < 3) {
+        cardholderName.innerHTML = 'Jane Applethesenuts';
+        displayErrorMessage('name-err', 'Please write name located on your card')
     }
 
 })
 
+ //CARD EXPIRY INPUT//
 const expiryMM = document.getElementById('card-expiry-mm');
 const expiryYY = document.getElementById('card-expiry-yy');
 const cardExpiryMonth = document.getElementById('exp-mm')
 const cardExpiryYear = document.getElementById('exp-yy')
 
 cardExpiryMonth.addEventListener('input', (event) => {
+    const ccMmErr = document.getElementById('mm-err');
+    ccMmErr.innerHTML = '';
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^0-9]/g, '');
     expiryMM.innerHTML = inputValue;
-    if (inputValue === '') {
-        expiryMM.innerHTML = '00'
+    if (inputValue === '' || inputValue > 12 ) {
+        expiryMM.innerHTML = '00';
+        displayErrorMessage('mm-err', 'Choose month from 1-12')
+
     }
 })
 
 cardExpiryYear.addEventListener('input', (event) => {
+    const ccYyErr = document.getElementById('yy-err');
+    ccYyErr.innerHTML = '';
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^0-9]/g, '');
     expiryYY.innerHTML = inputValue;
-    if (inputValue === '') {
-        expiryYY.innerHTML = '00'
+    if(inputValue > 29){
+        expiryYY.innerHTML = '00';
+        displayErrorMessage('yy-err', 'Invalid Card expiry year please contact support');
+    } else if(inputValue < 23 && (inputValue.length === 2 || inputValue.length === 1)){
+        expiryYY.innerHTML = '00';
+        displayErrorMessage('yy-err', 'This is an expired card');
+    } else if(inputValue === '') {
+        expiryYY.innerHTML = '00';
+        displayErrorMessage('yy-err', 'Field can not be blank')
     }
 })
 
-
+ //CARD CVV INPUT//
 const cardCvv = document.getElementById('cvv-number')
 const cardCvvInput = document.getElementById('cvv-input');
 
 cardCvvInput.addEventListener('input', (event) => {
+    const ccCvvErr = document.getElementById('cvv-err');
+    ccCvvErr.innerHTML = '';
     let inputValue = event.target.value;
     event.target.value = inputValue.replace(/[^0-9]/g, '');
     cardCvv.innerHTML = inputValue;
     if (inputValue === '') {
-        expiryYY.innerHTML = 'yy'
+        cardCvv.innerHTML = '000';
+        displayErrorMessage('cvv-err', 'Can\'t be blank')
+    } else if (inputValue.length < 3){
+        cardCvv.innerHTML = '000';
+        displayErrorMessage('cvv-err', 'Must contain 3 number on the back side of your card');
     }
 })
 
 
+//ERROR MESSAGE BLOCK//
 const confirmBtn = document.getElementById('confirm-button');
 
 confirmBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     clearErrorMessages();
+    
+    if (cardNumberInput.value === '') {
+        cardNumberInput.style.border = '1px solid red';
+        displayErrorMessage('card-num-err', 'Can\'t be blank');
+    }
+
+    if (nameInput.value === '' || nameInput.value.length < 3) {
+        nameInput.style.border = '1px solid red'
+        displayErrorMessage('name-err', 'Can not be less than 3 letters.');
+        console.log(nameInput.value.length);
+    }
+    
+    if (cardExpiryYear.value === '') {
+        cardExpiryYear.style.border = '1px solid red'
+        displayErrorMessage('yy-err', 'Can\'t be blank');
+    }
+    
+    if (cardExpiryMonth.value === '') {
+        cardExpiryMonth.style.border = '1px solid red'
+        displayErrorMessage('mm-err', 'Can\'t be blank');
+    }
 
     if (cardCvvInput.value === '') {
         cardCvvInput.style.border = '1px solid red'
         displayErrorMessage('cvv-err', 'Can\'t be blank');
-        // submissionPopUp.style.display = 'none';
-        // cardInfoContainer.style.display = 'block';
     }
-    if (cardExpiryYear.value === '') {
-        cardExpiryYear.style.border = '1px solid red'
-        displayErrorMessage('yy-err', 'Can\'t be blank');
-        // submissionPopUp.style.display = 'none';
-        // cardInfoContainer.style.display = 'block';
-    }
-    if (cardExpiryMonth.value === '') {
-        cardExpiryMonth.style.border = '1px solid red'
-        displayErrorMessage('mm-err', 'Can\'t be blank');
-        // submissionPopUp.style.display = 'none';
-        // cardInfoContainer.style.display = 'block';
-    }
-    if (nameInput.value === '') {
-        nameInput.style.border = '1px solid red'
-        displayErrorMessage('name-err', 'Can\'t be blank');
-        // submissionPopUp.style.display = 'none';
-        // cardInfoContainer.style.display = 'block';
-    }
-    if (cardNumberInput.value === '') {
-        cardNumberInput.style.border = '1px solid red';
-        displayErrorMessage('card-num-err', 'Can\'t be blank');
-        // submissionPopUp.style.display = 'none';
-        // cardInfoContainer.style.display = 'block';
-        //for all the above same thing. 
-    }
+    // if(cardCvvInput.value.length < 3){
+        //     cardCvvInput.style.border = '1px solid red'
+    //     displayErrorMessage('cvv-err', 'Make sure your CVV number has 3 numbers');
+    // }
+
 
     //Toggle blocks on submission of the 
     const submissionPopUp = document.getElementById('submission-pop-up');
