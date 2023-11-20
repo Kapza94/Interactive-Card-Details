@@ -21,16 +21,7 @@ function clearErrorMessages() {
         errElement.textContent = '';
     })
 
-    //Below is the different ways to write the above forEach loop.
 
-    // for(let i = 0;i < errIDs.length;i++){
-    //     console.log(errIDs[i]);
-    //     const errElement = document.getElementById(errIDs[i])
-    // }
-
-    // for(id of errIDs){
-    //     const errElement = document.getElementById(errIDs[i])
-    // }
     
     cardCvvInput.style.border = '';
     cardExpiryYear.style.border = '';
@@ -69,7 +60,7 @@ nameInput.addEventListener('input', (event) => {
     event.target.value = inputValue.replace(/[^a-zA-Z\s]/g, '');
     cardholderName.innerHTML = inputValue;
     if (inputValue === '' || inputValue.length < 3) {
-        cardholderName.innerHTML = 'Jane Applethesenuts';
+        cardholderName.innerHTML = 'Jane Appleseed';
         displayErrorMessage('name-err', 'Please write name located on your card')
     }
 
